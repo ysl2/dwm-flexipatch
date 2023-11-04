@@ -1477,3 +1477,4 @@
 
 // Self Added
 #define SHIFTBOTHCLIENTS_PATCH 1
+#define RESETLAYOUT_PATCH 1

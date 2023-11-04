@@ -962,9 +962,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_bracketleft,setmfact,               {.f = -0.05} },
 	{ MODKEY,                      XK_bracketright,setmfact,               {.f = +0.05} },
 	#if CFACTS_PATCH
-	{ MODKEY|ShiftMask,             XK_equal,      setcfact,               {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_minus,      setcfact,               {.f = -0.25} },
-	{ MODKEY|ShiftMask,             XK_backslash,  setcfact,               {0} },
+	{ MODKEY,                       XK_equal,      setcfact,               {.f = +0.25} },
+	{ MODKEY,                       XK_minus,      setcfact,               {.f = -0.25} },
+	// { MODKEY|ShiftMask,             XK_backslash,  setcfact,               {0} },
 	#endif // CFACTS_PATCH
 	#if ASPECTRESIZE_PATCH
 	{ MODKEY|ControlMask|ShiftMask, XK_e,          aspectresize,           {.i = +24} },
@@ -1302,6 +1302,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                                  6)
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
+
+    #if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
+	{ MODKEY,                       XK_backslash, resetlayout,    {.ui = 0} },
+	{ MODKEY|ControlMask,           XK_backslash, resetlayout,    {.ui = 1} },
+	{ MODKEY|ShiftMask,             XK_backslash, resetlayout,    {.ui = 2} },
+	{ MODKEY|ShiftMask|ControlMask, XK_backslash, resetlayout,    {.ui = 3} },
+    #endif
 };
 
 #if KEYMODES_PATCH

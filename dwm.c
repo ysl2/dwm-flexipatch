@@ -1858,7 +1858,7 @@ void
 drawbar(Monitor *m)
 {
 	Bar *bar;
-	
+
 	#if !BAR_FLEXWINTITLE_PATCH
 	if (m->showbar)
 	#endif // BAR_FLEXWINTITLE_PATCH
@@ -4505,6 +4505,10 @@ unmanage(Client *c, int destroyed)
 	arrange(m);
 	focus(NULL);
 	updateclientlist();
+    #if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
+    if (!(nexttiled(m->clients)))
+        resetlayout(&(const Arg){.ui = 3});
+    #endif
 	#if SWITCHTAG_PATCH
 	if (switchtag && ((switchtag & TAGMASK) != selmon->tagset[selmon->seltags]))
 		view(&((Arg) { .ui = switchtag }));

@@ -400,4 +400,7 @@
 #if SHIFTBOTHCLIENTS_PATCH
 #include "shiftbothclients.c"
 #endif
+#if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
+#include "resetlayout.c"
+#endif
 
