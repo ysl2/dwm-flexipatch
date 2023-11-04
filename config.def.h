@@ -504,6 +504,9 @@ static const Rule rules[] = {
 	#elif SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
+    RULE(.class = "St", .isterminal = 1)
+    RULE(.class = "Alacritty", .isterminal = 1)
+    RULE(.class = "Clash for Windows", .isfloating = 1)
 };
 
 #if MONITOR_RULES_PATCH
