@@ -403,4 +403,7 @@
 #if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
 #include "resetlayout.c"
 #endif
+#if BAR_SYSTRAY_PATCH && BULKILL_PATCH
+#include "bulkill.c"
+#endif
 

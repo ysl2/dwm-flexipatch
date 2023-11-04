@@ -1303,11 +1303,18 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
 
+    // Self Added
     #if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
 	{ MODKEY,                       XK_backslash, resetlayout,    {.ui = 0} },
 	{ MODKEY|ControlMask,           XK_backslash, resetlayout,    {.ui = 1} },
 	{ MODKEY|ShiftMask,             XK_backslash, resetlayout,    {.ui = 2} },
 	{ MODKEY|ShiftMask|ControlMask, XK_backslash, resetlayout,    {.ui = 3} },
+    #endif
+    #if BAR_SYSTRAY_PATCH && BULKILL_PATCH
+    { MODKEY|ControlMask,           XK_c,      bulkill,        {.ui = 1} },  // kill unselect (except sticky)
+    { MODKEY|ShiftMask|ControlMask, XK_c,      bulkill,        {.ui = 2} },  // killall (except sticky)
+    { MODKEY|ControlMask,           XK_z,      bulkill,        {.ui = 3} },  // kill unselect
+    { MODKEY|ShiftMask|ControlMask, XK_z,      bulkill,        {.ui = 4} },  // killall
     #endif
 };
 
