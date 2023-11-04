@@ -1052,7 +1052,7 @@
  * Also see the focusadjacenttag patch.
  * https://dwm.suckless.org/patches/shift-tools/
  */
-#define SHIFTTAG_PATCH 1
+#define SHIFTTAG_PATCH 0
 
 /* Moves the current selected client to the adjacent tag that has at least one client, if none
  * then it acts as shifttag.
