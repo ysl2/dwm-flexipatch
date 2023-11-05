@@ -930,6 +930,10 @@ static const Key keys[] = {
 	#else
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
+	#if BAR_WINTITLEACTIONS_PATCH
+	{ MODKEY|ControlMask,           XK_j,          focusstack,             {.i = +2 } },
+	{ MODKEY|ControlMask,           XK_k,          focusstack,             {.i = -2 } },
+	#endif // BAR_WINTITLEACTIONS_PATCH
 	#endif // STACKER_PATCH
 	#if FOCUSDIR_PATCH
 	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left
@@ -1056,7 +1060,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask, XK_l,          shiftswaptags,          { .i = +1 } },
 	#endif // SHIFTSWAPTAGS_PATCH
 	#if BAR_WINTITLEACTIONS_PATCH
-	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
+	{ MODKEY|ControlMask,           XK_s,          showhideclient,         {0} },
 	#endif // BAR_WINTITLEACTIONS_PATCH
 	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
 	#if KILLUNSEL_PATCH
