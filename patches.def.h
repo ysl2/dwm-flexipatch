@@ -1058,7 +1058,7 @@
  * then it acts as shifttag.
  * https://dwm.suckless.org/patches/shift-tools/
  */
-#define SHIFTTAGCLIENTS_PATCH 1
+#define SHIFTTAGCLIENTS_PATCH 0
 
 /* This patch adds keybindings for left and right circular shift through tags.
  * https://github.com/chau-bao-long/dotfiles/blob/master/suckless/dwm/shiftview.diff
