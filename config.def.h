@@ -146,6 +146,10 @@ static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static int fakefsindicatortype           = INDICATOR_PLUS;
 static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
 #endif // FAKEFULLSCREEN_CLIENT_PATCH
+#if STICKYINDICATOR_PATCH && STICKY_PATCH
+static int stickyindicatortype           = INDICATOR_PLUS;
+static int floatstickyindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
+#endif // STICKYINDICATOR_PATCH && STICKY_PATCH
 #if ONLYQUITONEMPTY_PATCH
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 #endif // ONLYQUITONEMPTY_PATCH
