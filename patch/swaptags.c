@@ -8,10 +8,6 @@ swaptags(const Arg *arg)
 	if (newtag == curtag || !curtag || (curtag & (curtag-1)))
 		return;
 
-	#if TAGSYNC_PATCH
-	Monitor *origselmon = selmon;
-	for (selmon = mons; selmon; selmon = selmon->next) {
-	#endif // TAGSYNC_PATCH
 
 	for (c = selmon->clients; c != NULL; c = c->next) {
 		if ((c->tags & newtag) || (c->tags & curtag))
@@ -21,10 +17,6 @@ swaptags(const Arg *arg)
 				c->tags = newtag;
 	}
 
-	#if TAGSYNC_PATCH
-	}
-	selmon = origselmon;
-	#endif // TAGSYNC_PATCH
 
 	view(&((Arg) { .ui = newtag }));
 }

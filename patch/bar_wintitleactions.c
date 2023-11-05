@@ -80,9 +80,6 @@ showhideclient(const Arg *arg)
 	if (!c)
 		return;
 
-	#if WARP_PATCH
-	force_warp = 1;
-	#endif // WARP_PATCH
 	if (HIDDEN(c)) {
 		show(c);
 		focus(c);

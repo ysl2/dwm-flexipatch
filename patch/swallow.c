@@ -37,21 +37,13 @@ swallow(Client *p, Client *c)
 	XChangeProperty(dpy, c->win, netatom[NetClientList], XA_WINDOW, 32, PropModeReplace,
 		(unsigned char *) &(p->win), 1);
 
-	#if BAR_WINICON_PATCH
-	updateicon(p);
-	#endif
 	updatetitle(p);
 	s = scanner ? c : p;
-	#if BAR_EWMHTAGS_PATCH
-	setfloatinghint(s);
-	#endif // BAR_EWMHTAGS_PATCH
 
 	wc.border_width = p->bw;
 	XConfigureWindow(dpy, p->win, CWBorderWidth, &wc);
 	XMoveResizeWindow(dpy, p->win, s->x, s->y, s->w, s->h);
-	#if !BAR_FLEXWINTITLE_PATCH
 	XSetWindowBorder(dpy, p->win, scheme[SchemeNorm][ColBorder].pixel);
-	#endif // BAR_FLEXWINTITLE_PATCH
 
 	arrange(p->mon);
 	configure(p);
@@ -73,9 +65,6 @@ unswallow(Client *c)
 
 	/* unfullscreen the client */
 	setfullscreen(c, 0);
-	#if BAR_WINICON_PATCH
-	updateicon(c);
-	#endif
 	updatetitle(c);
 	arrange(c->mon);
 	XMapWindow(dpy, c->win);
@@ -83,13 +72,8 @@ unswallow(Client *c)
 	wc.border_width = c->bw;
 	XConfigureWindow(dpy, c->win, CWBorderWidth, &wc);
 	XMoveResizeWindow(dpy, c->win, c->x, c->y, c->w, c->h);
-	#if !BAR_FLEXWINTITLE_PATCH
 	XSetWindowBorder(dpy, c->win, scheme[SchemeNorm][ColBorder].pixel);
-	#endif // BAR_FLEXWINTITLE_PATCH
 
-	#if BAR_EWMHTAGS_PATCH
-	setfloatinghint(c);
-	#endif // BAR_EWMHTAGS_PATCH
 	setclientstate(c, NormalState);
 	arrange(c->mon);
 	focus(NULL);
