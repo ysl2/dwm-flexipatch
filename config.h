@@ -1303,6 +1303,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                                  6)
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
+
+    // Self Added
+    #if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
+	{ MODKEY,                       XK_backslash, resetlayout,    {.ui = 0} },
+	{ MODKEY|ControlMask,           XK_backslash, resetlayout,    {.ui = 1} },
+	{ MODKEY|ShiftMask,             XK_backslash, resetlayout,    {.ui = 2} },
+	{ MODKEY|ShiftMask|ControlMask, XK_backslash, resetlayout,    {.ui = 3} },
+    #endif
 };
 
 #if KEYMODES_PATCH

@@ -389,3 +389,7 @@
 #include "layout_tile.h"
 #endif
 
+// Self Added
+#if PERTAG_PATCH && CFACTS_PATCH && RESETLAYOUT_PATCH
+#include "resetlayout.h"
+#endif
