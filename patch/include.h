@@ -389,3 +389,7 @@
 #include "layout_tile.h"
 #endif
 
+// Self Added
+#if SHIFTBOTHCLIENTS_PATCH
+#include "shiftbothclients.h"
+#endif

@@ -396,3 +396,7 @@
 #include "layout_tile.c"
 #endif
 
+// Self Added
+#if SHIFTBOTHCLIENTS_PATCH
+#include "shiftbothclients.c"
+#endif
