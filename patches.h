@@ -1479,3 +1479,6 @@
  * This can be optionally disabled in favour of other layouts.
  */
 #define MONOCLE_LAYOUT 1
+
+// Self Added
+#define SHIFTBOTHCLIENTS_PATCH 1

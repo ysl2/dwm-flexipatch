@@ -1049,6 +1049,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_h,          shiftboth,              { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoleft
 	{ MODKEY|ShiftMask,             XK_l,          shiftboth,              { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagandviewtoright
 	#endif // SHIFTBOTH_PATCH
+	#if SHIFTBOTHCLIENTS_PATCH
+	{ MODKEY|ShiftMask,             XK_p,          shiftbothclients,       { .i = -1 } },
+	{ MODKEY|ShiftMask,             XK_n,          shiftbothclients,       { .i = +1 } },
+	#endif // SHIFTBOTHCLIENTS_PATCH
 	#if SHIFTSWAPTAGS_PATCH && SWAPTAGS_PATCH
 	{ MODKEY|ShiftMask|ControlMask, XK_h,          shiftswaptags,          { .i = -1 } },
 	{ MODKEY|ShiftMask|ControlMask, XK_l,          shiftswaptags,          { .i = +1 } },
