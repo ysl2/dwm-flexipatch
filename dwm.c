@@ -1866,7 +1866,7 @@ void
 drawbar(Monitor *m)
 {
 	Bar *bar;
-	
+
 	#if !BAR_FLEXWINTITLE_PATCH
 	if (m->showbar)
 	#endif // BAR_FLEXWINTITLE_PATCH
@@ -2649,6 +2649,7 @@ manage(Window w, XWindowAttributes *wa)
 		XMapWindow(dpy, c->win);
 		#endif // BAR_WINTITLEACTIONS_PATCH
 	}
+	focus(term);
 	#else
 	#if RIODRAW_PATCH
 	if (riopid) {
@@ -2667,8 +2668,8 @@ manage(Window w, XWindowAttributes *wa)
 	#else
 	XMapWindow(dpy, c->win);
 	#endif // BAR_WINTITLEACTIONS_PATCH
-	#endif // SWALLOW_PATCH
 	focus(NULL);
+	#endif // SWALLOW_PATCH
 
 	#if BAR_EWMHTAGS_PATCH
 	setfloatinghint(c);
