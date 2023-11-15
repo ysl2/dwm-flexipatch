@@ -103,6 +103,13 @@ drawstateindicator(Monitor *m, Client *c, unsigned int occ, int x, int y, int w,
 		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, fakefsindicatortype);
 	else
 	#endif // FAKEFULLSCREEN_CLIENT_PATCH
+    #if STICKYINDICATOR_PATCH && STICKY_PATCH
+	if (c->issticky && c->isfloating)
+		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, floatstickyindicatortype);
+	else if (c->issticky)
+		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, stickyindicatortype);
+	else
+    #endif // STICKYINDICATOR_PATCH && STICKY_PATCH
 	if (c->isfloating)
 		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, floatindicatortype);
 	else
