@@ -396,3 +396,7 @@
 #include "layout_tile.c"
 #endif
 
+// Self Added
+#if BAR_SYSTRAY_PATCH && STICKY_PATCH && BULKILL_PATCH
+#include "bulkill.c"
+#endif

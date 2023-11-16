@@ -1303,6 +1303,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                                  6)
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
+
+    // Self Added
+    #if BAR_SYSTRAY_PATCH && STICKY_PATCH && BULKILL_PATCH
+    { MODKEY|ControlMask,           XK_c,      bulkill,        {.ui = 1} },  // kill unselect (except sticky)
+    { MODKEY|ShiftMask|ControlMask, XK_c,      bulkill,        {.ui = 2} },  // killall (except sticky)
+    { MODKEY|ControlMask,           XK_z,      bulkill,        {.ui = 3} },  // kill unselect
+    { MODKEY|ShiftMask|ControlMask, XK_z,      bulkill,        {.ui = 4} },  // killall
+    #endif
 };
 
 #if KEYMODES_PATCH
