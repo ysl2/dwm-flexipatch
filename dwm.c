@@ -4522,7 +4522,14 @@ unmanage(Client *c, int destroyed)
 	if (s)
 		return;
 	#endif // SWALLOW_PATCH
+	#if RESETLAYOUT_PATCH
+	if (!(nexttiled(m->clients)))
+		resetlayout(NULL);
+	else
+		arrange(m);
+	#else
 	arrange(m);
+	#endif // RESETLAYOUT_PATCH
 	focus(NULL);
 	updateclientlist();
 	#if SWITCHTAG_PATCH
