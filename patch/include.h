@@ -393,3 +393,6 @@
 #if SHIFTBOTHCLIENTS_PATCH
 #include "shiftbothclients.h"
 #endif
+#if RESETLAYOUT_PATCH
+#include "resetlayout.h"
+#endif
