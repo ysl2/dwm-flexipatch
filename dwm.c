@@ -1091,6 +1091,9 @@ applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact)
 void
 arrange(Monitor *m)
 {
+	#if FIXMULTIMON_PATCH
+	XEvent ev;
+	#endif // FIXMULTIMON_PATCH
 	if (m)
 		showhide(m->stack);
 	else for (m = mons; m; m = m->next)
@@ -1098,8 +1101,17 @@ arrange(Monitor *m)
 	if (m) {
 		arrangemon(m);
 		restack(m);
+	#if FIXMULTIMON_PATCH
+	} else {
+		for (m = mons; m; m = m->next)
+			arrangemon(m);
+		XSync(dpy, False);
+		while (XCheckMaskEvent(dpy, EnterWindowMask, &ev));
+	}
+	#else
 	} else for (m = mons; m; m = m->next)
 		arrangemon(m);
+	#endif // FIXMULTIMON_PATCH
 }
 
 void
@@ -2091,6 +2103,8 @@ focus(Client *c)
 	} else {
 		#if NODMENU_PATCH
 		XSetInputFocus(dpy, selmon->bar && selmon->bar->win ? selmon->bar->win : root, RevertToPointerRoot, CurrentTime);
+		#elif FIXMULTIMON_PATCH
+		XSetInputFocus(dpy, selmon->bar->win, RevertToPointerRoot, CurrentTime);
 		#else
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		#endif // NODMENU_PATCH

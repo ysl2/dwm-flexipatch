@@ -3,6 +3,9 @@ tagallmon(const Arg *arg)
 {
 	Monitor *m;
 	Client *c, *last, *slast, *next;
+	#if VIEWONTAG_PATCH
+	Client *sel = selmon->sel;
+	#endif // VIEWONTAG_PATCH
 
 	if (!mons->next)
 		return;
@@ -44,6 +47,10 @@ tagallmon(const Arg *arg)
 	}
 
 	arrange(NULL);
+	#if VIEWONTAG_PATCH
+	focus(sel);
+	#else
 	focus(NULL);
+	#endif // VIEWONTAG_PATCH
 }
 

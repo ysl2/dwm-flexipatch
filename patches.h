@@ -401,6 +401,7 @@
 /* This patch draws and updates the statusbar on all monitors.
  * https://dwm.suckless.org/patches/statusallmons/
  */
+// WARNING:
 #define BAR_STATUSALLMONS_PATCH 0
 
 /* This patch enables colored text in the status bar. It changes the way colors are defined
@@ -820,6 +821,7 @@
  *
  * https://dwm.suckless.org/patches/nametag/
  */
+// WARNING:
 #define NAMETAG_PATCH 0
 
 /* Variant of the above which prepends the tag number to the given string.
@@ -1035,7 +1037,7 @@
 /* This patch allow clients to keep focus when being sent to another monitor.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-sendmon_keepfocus-6.2.diff
  */
-#define SENDMON_KEEPFOCUS_PATCH 0
+#define SENDMON_KEEPFOCUS_PATCH 1
 
 /* This patch allows border pixels to be changed during runtime.
  * https://dwm.suckless.org/patches/setborderpx/
@@ -1112,6 +1114,7 @@
  * comes to focusmon, tagmon and similar functionality.
  * https://www.mail-archive.com/hackers@suckless.org/msg09400.html
  */
+// WARNING:
 #define SORTSCREENS_PATCH 0
 
 /* Spawns programs from currently focused client's working directory.
@@ -1214,7 +1217,7 @@
 /* This patch allows you to move all visible windows on a monitor to an adjacent monitor.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagallmon-6.2.diff
  */
-#define TAGALLMON_PATCH 0
+#define TAGALLMON_PATCH 1
 
 /* This patch makes new clients attach into the stack area when you toggle a new tag into
  * view. This means your master area will remain unchanged when toggling views.
@@ -1238,19 +1241,19 @@
  * while remaining in fullscreen.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagmonfixfs-6.2.diff
  */
-#define TAGMONFIXFS_PATCH 0
+#define TAGMONFIXFS_PATCH 1
 
 /* Add functions and keybindings to tag a window to a desired tag on the next (right)
  * or previous (left) monitor from the currently selected monitor.
  * https://dwm.suckless.org/patches/tagothermonitor/
  */
-#define TAGOTHERMONITOR_PATCH 0
+#define TAGOTHERMONITOR_PATCH 1
 
 /* This patch allows you to swap all visible windows on one monitor with those of an
  * adjacent monitor.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagswapmon-6.2.diff
  */
-#define TAGSWAPMON_PATCH 0
+#define TAGSWAPMON_PATCH 1
 
 /* Sync tag actions across all monitors.
  * This is comparable to a sort of pseudo-desktop environment.
@@ -1485,3 +1488,4 @@
 #define STICKYINDICATOR_PATCH 1
 #define VANITYGAPS_FULLSCREEN_PATCH 1
 #define RESETLAYOUT_PATCH 1
+#define FIXMULTIMON_PATCH 1

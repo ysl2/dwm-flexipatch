@@ -24,10 +24,10 @@ static const int scalepreview            = 4;        /* Tag preview scaling */
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
 #endif // NO_MOD_BUTTONS_PATCH
 #if VANITYGAPS_PATCH
-static const unsigned int gappih         = 5;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 5;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 5;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 5;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 10;  /* vert outer gap between windows and screen edge */
 static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
@@ -815,19 +815,19 @@ static const char *xkb_layouts[]  = {
 #elif SWAPTAGS_PATCH && TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
-	{ MODKEY|Mod4Mask|ShiftMask,    KEY,      swaptags,       {.ui = 1 << TAG} }, \
-	{ MODKEY|Mod4Mask,              KEY,      tagnextmon,     {.ui = 1 << TAG} }, \
-	{ MODKEY|Mod4Mask|ControlMask,  KEY,      tagprevmon,     {.ui = 1 << TAG} },
-#elif SWAPTAGS_PATCH
-#define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ Mod1Mask,                     KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ Mod1Mask|ShiftMask,           KEY,      toggletag,      {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask|ControlMask, KEY,      swaptags,       {.ui = 1 << TAG} },
+	{ MODKEY|ShiftMask|ControlMask, KEY,      swaptags,       {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask,              KEY,      tagnextmon,     {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask|ControlMask,  KEY,      tagprevmon,     {.ui = 1 << TAG} },
+#elif SWAPTAGS_PATCH
+#define TAGKEYS(KEY,TAG) \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod4Mask|ShiftMask,    KEY,      swaptags,       {.ui = 1 << TAG} },
 #elif TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -1021,14 +1021,14 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_o,          incrogaps,              {.i = +1 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_o,          incrogaps,              {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_6,          incrihgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_6,          incrihgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_7,          incrivgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_7,          incrivgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_8,          incrohgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,          incrohgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_9,          incrovgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_6,          incrihgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_6,          incrihgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_7,          incrivgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_7,          incrivgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_8,          incrohgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_8,          incrohgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_9,          incrovgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_0,          togglegaps,             {0} },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	#endif // VANITYGAPS_PATCH
@@ -1157,10 +1157,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
 	#endif // SCRATCHPAD_ALT_1_PATCH
-	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },
-	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
+	{ MODKEY|Mod1Mask,              XK_h,          focusmon,               {.i = -1 } },
+	{ MODKEY|Mod1Mask,              XK_l,          focusmon,               {.i = +1 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_h,          tagmon,                 {.i = -1 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_l,          tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
 	{ MODKEY,                       XK_Left,       viewtoleft,             {0} }, // note keybinding conflict with focusdir
 	{ MODKEY,                       XK_Right,      viewtoright,            {0} }, // note keybinding conflict with focusdir
@@ -1190,12 +1190,12 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_F9,         tagall,                 {.v = "9"} },
 	#endif // TAGALL_PATCH
 	#if TAGALLMON_PATCH
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_comma,      tagallmon,              {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_period,     tagallmon,              {.i = -1 } },
+	{ MODKEY|Mod1Mask|ShiftMask|ControlMask, XK_l, tagallmon,              {.i = +1 } },
+	{ MODKEY|Mod1Mask|ShiftMask|ControlMask, XK_h, tagallmon,              {.i = -1 } },
 	#endif // TAGALLMON_PATCH
 	#if TAGSWAPMON_PATCH
-	{ MODKEY|Mod4Mask|ControlMask,  XK_comma,      tagswapmon,             {.i = +1 } },
-	{ MODKEY|Mod4Mask|ControlMask,  XK_period,     tagswapmon,             {.i = -1 } },
+	{ MODKEY|Mod1Mask|ControlMask,  XK_l,          tagswapmon,             {.i = +1 } },
+	{ MODKEY|Mod1Mask|ControlMask,  XK_h,          tagswapmon,             {.i = -1 } },
 	#endif // TAGSWAPMON_PATCH
 	#if BAR_ALTERNATIVE_TAGS_PATCH
 	{ MODKEY,                       XK_n,          togglealttag,           {0} },

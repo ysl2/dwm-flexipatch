@@ -3,6 +3,9 @@ tagswapmon(const Arg *arg)
 {
 	Monitor *m;
 	Client *c, *sc = NULL, *mc = NULL, *next;
+	#if VIEWONTAG_PATCH
+	Client *sel = selmon->sel;
+	#endif // VIEWONTAG_PATCH
 
 	if (!mons->next)
 		return;
@@ -70,6 +73,10 @@ tagswapmon(const Arg *arg)
 	}
 
 	arrange(NULL);
+	#if VIEWONTAG_PATCH
+	focus(sel);
+	#else
 	focus(NULL);
+	#endif // VIEWONTAG_PATCH
 }
 
