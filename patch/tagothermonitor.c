@@ -40,5 +40,9 @@ tagothermon(const Arg *arg, int dir)
 		arrange(newmon);
 		focus(NULL);
 	}
+	#if VIEWONTAG_PATCH
+	if ((arg->ui & TAGMASK) != newmon->tagset[newmon->seltags])
+		view(arg);
+	#endif
 }
 
