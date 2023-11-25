@@ -781,7 +781,7 @@ static const char *xkb_layouts[]  = {
 #endif // XKB_PATCH
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #if COMBO_PATCH && SWAPTAGS_PATCH && TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
@@ -1159,8 +1159,8 @@ static const Key keys[] = {
 	#endif // SCRATCHPAD_ALT_1_PATCH
 	{ MODKEY|Mod1Mask,              XK_h,          focusmon,               {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_l,          focusmon,               {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_h,          tagmon,                 {.i = -1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_l,          tagmon,                 {.i = +1 } },
+	{ MODKEY,                       XK_g,          tagmon,                 {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_g,          tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
 	{ MODKEY,                       XK_Left,       viewtoleft,             {0} }, // note keybinding conflict with focusdir
 	{ MODKEY,                       XK_Right,      viewtoright,            {0} }, // note keybinding conflict with focusdir
