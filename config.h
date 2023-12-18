@@ -411,13 +411,13 @@ static const char *const autostart[] = {
 #endif // COOL_AUTOSTART_PATCH
 
 #if RENAMED_SCRATCHPADS_PATCH
-static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+// static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+static const char *scratchpadcmd[] = {"s", "alacritty", "-c", "spterm", NULL};
 #elif SCRATCHPADS_PATCH
-// const char *spcmd1[] = {"alacritty", "--class", "spterm", NULL };
 const char *spcmd1[] = {"st", "-n", "spterm", NULL };
 static Sp scratchpads[] = {
-   /* name          cmd  */
-   {"spterm",      spcmd1},
+	/* name          cmd  */
+	{"spterm",      spcmd1},
 };
 #endif // SCRATCHPADS_PATCH
 
@@ -882,8 +882,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-// static const char *termcmd[]  = { "alacritty", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
