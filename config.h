@@ -517,6 +517,7 @@ static const Rule rules[] = {
     RULE(.class = "flameshot", .isfloating = 1)
     RULE(.class = "deepin-ocr", .isfloating = 1)
     RULE(.class = "dosbox", .isfloating = 1)
+    RULE(.class = "Arandr", .isfloating = 1)
 };
 
 #if MONITOR_RULES_PATCH
