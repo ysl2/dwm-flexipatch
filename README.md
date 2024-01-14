@@ -23,6 +23,10 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
 
 ### Changelog:
 
+2023-12-22 - Added the do-not-die-on-color-allocation-failure patch
+
+2023-12-01 - Added the sendmoncenter patch
+
 2023-11-12 - Added the focusmaster-return patch variant
 
 2023-06-27 - Added the focusfollowmouse and unmanaged patches
@@ -361,6 +365,10 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
       - i.e. if topbar is 0 then dmenu will appear at the bottom and if 1 then dmenu will appear at
         the top
 
+   - do-not-die-on-color-allocation-failure
+      - avoids dwm terminating (dying) on color allocation failures
+      - useful for the xrdb (xresources) and status2d patches
+
    - [dragcfact](https://github.com/bakkeby/patches/wiki/dragcfact/)
       - lets you resize clients' size (i.e. modify cfact) by holding modkey + shift + right-click
         and dragging the mouse
@@ -653,6 +661,9 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
 
    - [selfrestart](https://dwm.suckless.org/patches/selfrestart/)
       - restart dwm without the unnecessary dependency of an external script
+
+   - [sendmoncenter](https://dwm.suckless.org/patches/sendmoncenter/)
+      - floating windows being sent to another monitor will be centered
 
    - [sendmon\_keepfocus](https://github.com/bakkeby/patches/wiki/sendmon_keepfocus/)
       - minor patch that allow clients to keep focus when being sent to another monitor
